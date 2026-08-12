@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Tareas</title>
+</head>
+<body>
+    
+    <h1>Mis Tareas</h1>
+
+    <input type="text" id="demoTareaInput" placeholder="Escribir una Tarea">
+    <button id="demoAgregarBtn">Agregar</button>
+
+    <p>Total de tareas: <span id="demoContadorTareas">0</span></p>
+    <ul id="demoListaTareas"></ul>
+
+    <script>
+        const tareaInput = document.getElementById('demoTareaInput');
+        const agregarBtn = document.getElementById('demoAgregarBtn');
+        const listaTareas = document.getElementById('demoListaTareas');
+        const contadorTareas = document.getElementById('demoContadorTareas');
+
+        function actualizarContador() {
+            contadorTareas.textContent = listaTareas.children.length;
+        }
+
+        agregarBtn.addEventListener('click', function() {
+            const nuevaTareaTexto = tareaInput.value.trim();
+            if (nuevaTareaTexto === '') return;
+
+            const nuevaTareaLi = document.createElement('li');
+            nuevaTareaLi.textContent = nuevaTareaTexto;
+            listaTareas.appendChild(nuevaTareaLi);
+
+            tareaInput.value = '';
+            actualizarContador();
+        });
+    </script>
+
+</body>
+</html>
