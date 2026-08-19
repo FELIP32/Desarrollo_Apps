@@ -1,0 +1,38 @@
+<main class="todo-shell">
+  <section class="todo-card">
+    <header class="todo-header">
+      <h1>Mis tareas</h1>
+    </header>
+
+    <form class="composer" (submit)="agregarTarea(); $event.preventDefault()">
+      <input
+        type="text"
+        [(ngModel)]="nuevaTarea"
+        name="nuevaTarea"
+        placeholder="Añade una tarea..."
+        aria-label="Nueva tarea"
+      />
+      <button type="submit">Añadir</button>
+    </form>
+
+    @if (tasks().length === 0) {
+      <div class="empty-state">
+        <p>No tienes tareas todavía.</p>
+      </div>
+    } @else {
+      <ul class="task-list">
+        @for (tarea of tasks(); track tarea.id; let i = $index) {
+          <li class="task-item">
+            <div class="task-main">
+              <span class="task-index">{{ i + 1 }}</span>
+              <span>{{ tarea.texto }}</span>
+            </div>
+            <button type="button" class="delete-btn" (click)="borrarTarea(tarea.id)" aria-label="Eliminar tarea">
+              ×
+            </button>
+          </li>
+        }
+      </ul>
+    }
+  </section>
+</main>
