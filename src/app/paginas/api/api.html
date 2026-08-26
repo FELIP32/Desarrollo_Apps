@@ -1,0 +1,9 @@
+<h1>Personajes</h1>
+
+@for (personaje of personajes; track personaje.id) {
+	<article>
+		<h2>{{ personaje.name }}</h2>
+		<img [src]="personaje.image" [alt]="personaje.name">
+		<button type="button" (click)="borrarPersonaje(personaje.id)">Borrar</button>
+	</article>
+}
