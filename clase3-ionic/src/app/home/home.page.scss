@@ -1,0 +1,199 @@
+:host {
+  --ink: #202522;
+  --muted: #77736b;
+  --line: #d8d2c6;
+  --paper: #ebe7df;
+  --accent: #db5a3f;
+  display: block;
+}
+
+ion-content {
+  --background: var(--paper);
+}
+
+.app-header ion-toolbar {
+  --background: var(--paper);
+  --border-color: var(--line);
+  --color: var(--ink);
+  padding: 0 18px;
+}
+
+.app-header ion-title {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 0;
+  font-size: 14px;
+  font-weight: 700;
+  letter-spacing: .02em;
+}
+
+.brand-mark {
+  display: grid;
+  place-items: center;
+  width: 28px;
+  height: 28px;
+  border: 1px solid var(--ink);
+  border-radius: 50%;
+  font-size: 9px;
+  letter-spacing: 0;
+}
+
+.date-label {
+  color: var(--muted);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .16em;
+}
+
+.todo-shell {
+  min-height: 100%;
+  padding: 54px 20px 40px;
+  background-image: linear-gradient(rgba(32, 37, 34, .035) 1px, transparent 1px);
+  background-size: 100% 34px;
+}
+
+.todo-page {
+  max-width: 650px;
+  margin: 0 auto;
+}
+
+.todo-header {
+  margin-bottom: 34px;
+}
+
+.eyebrow {
+  margin: 0 0 18px;
+  color: var(--accent);
+  font-size: 10px;
+  font-weight: 800;
+  letter-spacing: .14em;
+}
+
+h1 {
+  margin: 0;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: clamp(44px, 10vw, 76px);
+  font-weight: 400;
+  line-height: .94;
+  letter-spacing: -.055em;
+}
+
+h1 em {
+  color: var(--accent);
+  font-style: italic;
+}
+
+.subtitle {
+  margin: 20px 0 0;
+  color: var(--muted);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 16px;
+  font-style: italic;
+}
+
+.composer {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 8px;
+  align-items: end;
+  margin-bottom: 32px;
+  padding-bottom: 8px;
+  border-bottom: 1px solid var(--ink);
+}
+
+.composer ion-input {
+  --background: transparent;
+  --border-color: transparent;
+  --color: var(--ink);
+  --highlight-color-focused: var(--accent);
+  --padding-start: 0;
+  --padding-end: 0;
+  --placeholder-color: var(--muted);
+  --placeholder-opacity: 1;
+}
+
+.composer ion-button {
+  width: 42px;
+  height: 42px;
+  margin: 0;
+  --border-radius: 50%;
+  --background: var(--accent);
+  --background-hover: #c84d35;
+  --color: #fffaf2;
+}
+
+.task-list {
+  margin: 0;
+  padding: 0;
+  background: transparent;
+}
+
+.task-item {
+  --background: transparent;
+  --border-color: var(--line);
+  --padding-start: 0;
+  --inner-padding-end: 0;
+  --min-height: 58px;
+  margin-bottom: 0;
+  border-bottom: 1px solid var(--line);
+}
+
+.task-index {
+  width: 34px;
+  margin-right: 12px;
+  color: var(--accent);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 13px;
+  font-style: italic;
+}
+
+.task-item ion-label {
+  color: var(--ink);
+  font-size: 16px;
+}
+
+.task-item ion-button {
+  margin: 0;
+}
+
+.empty-state {
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+  color: var(--muted);
+}
+
+.empty-line {
+  width: 28px;
+  height: 1px;
+  margin-top: 11px;
+  background: var(--accent);
+}
+
+.empty-state h2 {
+  margin: 0 0 4px;
+  color: var(--ink);
+  font-family: Georgia, 'Times New Roman', serif;
+  font-size: 20px;
+  font-weight: 400;
+}
+
+.empty-state p {
+  margin: 0;
+  font-size: 13px;
+}
+
+@media (max-width: 560px) {
+  .todo-shell {
+    padding: 34px 16px 28px;
+  }
+
+  .composer {
+    grid-template-columns: 1fr;
+  }
+}

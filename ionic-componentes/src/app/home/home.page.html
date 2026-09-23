@@ -1,0 +1,100 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-title>
+      <span class="brand-mark">I</span>
+      Ionic <strong>Component Lab</strong>
+    </ion-title>
+    <ion-buttons slot="end">
+      <ion-button fill="clear" href="https://ionicframework.com/docs/components" target="_blank">
+        <ion-icon slot="start" name="book-outline"></ion-icon>
+        Docs
+      </ion-button>
+      <ion-button fill="solid" color="dark" (click)="showToast('Tu progreso se guardará en la próxima versión')">
+        <ion-icon slot="start" name="bookmark-outline"></ion-icon>
+        Guardar
+      </ion-button>
+    </ion-buttons>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="page-shell">
+    <section class="intro-row">
+      <div>
+        <p class="eyebrow">IONIC 9 · CATÁLOGO INTERACTIVO</p>
+        <h1>La caja de herramientas<br /><em>en acción.</em></h1>
+        <p class="intro-copy">Explora los componentes esenciales de Ionic, pruébalos y entiende cuándo usar cada uno.</p>
+      </div>
+      <div class="intro-meta">
+        <ion-chip color="success"><ion-icon name="checkmark-circle"></ion-icon><ion-label>Listo para probar</ion-label></ion-chip>
+        <p><strong>32</strong> componentes mostrados</p>
+      </div>
+    </section>
+
+    <ion-segment [(ngModel)]="selectedSegment" class="category-tabs">
+      <ion-segment-button value="componentes"><ion-label>Componentes</ion-label></ion-segment-button>
+      <ion-segment-button value="formularios"><ion-label>Formularios</ion-label></ion-segment-button>
+      <ion-segment-button value="feedback"><ion-label>Feedback</ion-label></ion-segment-button>
+    </ion-segment>
+
+    <section class="component-grid" [hidden]="selectedSegment !== 'componentes'">
+      <article class="showcase-card card-wide">
+        <div class="card-heading"><div><span class="component-tag">ION-BUTTON</span><h2>Acciones claras</h2></div><ion-icon name="arrow-forward-outline"></ion-icon></div>
+        <p class="card-description">Botones para acciones primarias, secundarias y destructivas.</p>
+        <div class="demo-row button-row">
+          <ion-button color="primary">Primario <ion-icon slot="end" name="arrow-forward"></ion-icon></ion-button>
+          <ion-button fill="outline" color="primary">Outline</ion-button>
+          <ion-button fill="clear" color="medium">Texto</ion-button>
+          <ion-button color="danger" fill="outline"><ion-icon slot="icon-only" name="trash-outline"></ion-icon></ion-button>
+        </div>
+        <div class="token-note"><code>&lt;ion-button&gt;</code><span>Sirve para iniciar una acción.</span></div>
+      </article>
+
+      <article class="showcase-card accent-card">
+        <div class="card-heading"><div><span class="component-tag">ION-CARD</span><h2>Información agrupada</h2></div><ion-icon name="layers-outline"></ion-icon></div>
+        <ion-card class="mini-card"><ion-card-header><ion-card-subtitle>PLAN ACTUAL</ion-card-subtitle><ion-card-title>Starter <ion-badge color="warning">Popular</ion-badge></ion-card-title></ion-card-header><ion-card-content>Para comenzar a construir experiencias móviles.</ion-card-content></ion-card>
+      </article>
+
+      <article class="showcase-card">
+        <div class="card-heading"><div><span class="component-tag">ION-LIST · ION-ITEM</span><h2>Listas escaneables</h2></div><ion-icon name="list-outline"></ion-icon></div>
+        <ion-list lines="full" class="demo-list"><ion-item><ion-avatar slot="start"><div class="avatar avatar-orange">M</div></ion-avatar><ion-label><h3>María García</h3><p>Diseño de interfaz · hace 2 min</p></ion-label><ion-badge slot="end" color="success">Nuevo</ion-badge></ion-item><ion-item><ion-thumbnail slot="start"><div class="thumbnail-art">✦</div></ion-thumbnail><ion-label><h3>Kit de componentes</h3><p>24 elementos actualizados</p></ion-label><ion-icon slot="end" color="medium" name="chevron-forward"></ion-icon></ion-item></ion-list>
+      </article>
+
+      <article class="showcase-card dark-card">
+        <div class="card-heading"><div><span class="component-tag">ION-PROGRESS-BAR · ION-SPINNER</span><h2>Progreso visible</h2></div><ion-icon name="pulse-outline"></ion-icon></div>
+        <div class="progress-label"><span>Construcción del proyecto</span><strong>{{ progress * 100 | number:'1.0-0' }}%</strong></div><ion-progress-bar [value]="progress" color="warning"></ion-progress-bar><div class="spinner-line"><ion-spinner name="dots" color="light"></ion-spinner><span>Sincronizando componentes...</span></div>
+      </article>
+
+      <article class="showcase-card card-wide">
+        <div class="card-heading"><div><span class="component-tag">ION-CHIP · ION-BADGE · ION-AVATAR</span><h2>Señales de estado</h2></div><ion-icon name="pricetags-outline"></ion-icon></div>
+        <div class="demo-row status-row"><ion-chip color="primary"><ion-icon name="flash"></ion-icon><ion-label>En progreso</ion-label></ion-chip><ion-chip color="success"><ion-icon name="checkmark"></ion-icon><ion-label>Completado</ion-label></ion-chip><ion-chip color="danger" outline><ion-label>Bloqueado</ion-label></ion-chip><div class="avatar avatar-blue">LC</div><ion-badge color="tertiary">Beta</ion-badge></div>
+      </article>
+
+      <article class="showcase-card">
+        <div class="card-heading"><div><span class="component-tag">ION-ACCORDION</span><h2>Contenido plegable</h2></div><ion-icon name="chevron-down-outline"></ion-icon></div>
+        <ion-accordion-group value="design"><ion-accordion value="design"><ion-item slot="header" color="light"><ion-label>¿Cuándo usarlo?</ion-label></ion-item><div class="accordion-copy" slot="content">Cuando una respuesta o detalle es útil, pero no necesita ocupar espacio todo el tiempo.</div></ion-accordion><ion-accordion value="accessibility"><ion-item slot="header"><ion-label>Accesibilidad</ion-label></ion-item><div class="accordion-copy" slot="content">El componente incluye estados y roles accesibles de forma nativa.</div></ion-accordion></ion-accordion-group>
+      </article>
+
+      <article class="showcase-card actions-card">
+        <div class="card-heading"><div><span class="component-tag">ION-ACTION-SHEET · ION-ALERT</span><h2>Decisiones rápidas</h2></div><ion-icon name="chatbox-ellipses-outline"></ion-icon></div>
+        <p class="card-description">Presenta opciones o confirma una acción sin cambiar de pantalla.</p><div class="demo-row"><ion-button size="small" (click)="showActions()">Abrir action sheet</ion-button><ion-button size="small" fill="outline" (click)="showAlert()">Mostrar alert</ion-button></div>
+      </article>
+    </section>
+
+    <section class="component-grid form-grid" [hidden]="selectedSegment !== 'formularios'">
+      <article class="showcase-card card-wide"><div class="card-heading"><div><span class="component-tag">ION-INPUT · ION-SELECT</span><h2>Capturar información</h2></div><ion-icon name="create-outline"></ion-icon></div><div class="form-layout"><ion-input label="Nombre del proyecto" label-placement="floating" fill="outline" placeholder="Ej. Mi app móvil"></ion-input><ion-select [(ngModel)]="selectedFruit" label="Componente favorito" label-placement="floating" fill="outline"><ion-select-option value="manzana">Ion-button</ion-select-option><ion-select-option value="naranja">Ion-card</ion-select-option><ion-select-option value="uva">Ion-modal</ion-select-option></ion-select></div><div class="token-note"><code>&lt;ion-input&gt;</code><span>Campos claros con etiqueta y validación.</span></div></article>
+      <article class="showcase-card"><div class="card-heading"><div><span class="component-tag">ION-TOGGLE · ION-CHECKBOX</span><h2>Preferencias</h2></div><ion-icon name="options-outline"></ion-icon></div><ion-list class="settings-list"><ion-item><ion-label><h3>Notificaciones</h3><p>Recibir novedades del proyecto</p></ion-label><ion-toggle [(ngModel)]="notificationsEnabled"></ion-toggle></ion-item><ion-item lines="none"><ion-checkbox [(ngModel)]="termsAccepted" label-placement="end">Acepto los términos</ion-checkbox></ion-item></ion-list></article>
+      <article class="showcase-card"><div class="card-heading"><div><span class="component-tag">ION-RANGE · ION-SEGMENT</span><h2>Elegir un valor</h2></div><ion-icon name="options-outline"></ion-icon></div><ion-range aria-label="Nivel" [value]="progress" (ionInput)="updateProgress($event.detail.value)"><ion-label slot="start">0</ion-label><ion-label slot="end">100</ion-label></ion-range><ion-segment value="grid" mode="ios"><ion-segment-button value="list"><ion-icon name="list-outline"></ion-icon></ion-segment-button><ion-segment-button value="grid"><ion-icon name="grid-outline"></ion-icon></ion-segment-button></ion-segment></article>
+    </section>
+
+    <section class="component-grid" [hidden]="selectedSegment !== 'feedback'">
+      <article class="showcase-card card-wide"><div class="card-heading"><div><span class="component-tag">ION-MODAL · ION-TOAST</span><h2>Capas y confirmaciones</h2></div><ion-icon name="browsers-outline"></ion-icon></div><p class="card-description">Una modal concentra una tarea; un toast confirma algo sin interrumpir el flujo.</p><div class="demo-row"><ion-button (click)="isModalOpen = true">Abrir modal</ion-button><ion-button fill="outline" (click)="showToast('Tu componente está funcionando')">Mostrar toast</ion-button></div></article>
+      <article class="showcase-card"><div class="card-heading"><div><span class="component-tag">ION-SKELETON-TEXT</span><h2>Carga progresiva</h2></div><ion-icon name="hourglass-outline"></ion-icon></div><ion-item lines="none"><ion-avatar slot="start"><ion-skeleton-text [animated]="true"></ion-skeleton-text></ion-avatar><ion-label><ion-skeleton-text [animated]="true" style="width: 70%"></ion-skeleton-text><ion-skeleton-text [animated]="true" style="width: 45%"></ion-skeleton-text></ion-label></ion-item></article>
+      <article class="showcase-card"><div class="card-heading"><div><span class="component-tag">ION-FAB · ION-MENU</span><h2>Acceso flotante</h2></div><ion-icon name="apps-outline"></ion-icon></div><p class="card-description">Acciones persistentes al alcance del pulgar.</p><ion-fab-button color="primary" (click)="showToast('FAB pulsado')"><ion-icon name="add"></ion-icon></ion-fab-button></article>
+    </section>
+
+    <footer class="app-footer"><span>Construido con Ionic Framework</span><div><ion-icon name="logo-angular"></ion-icon><ion-toggle aria-label="Modo oscuro" [checked]="isDarkMode" (ionChange)="toggleTheme($event)"></ion-toggle><span>Modo oscuro</span></div></footer>
+  </main>
+
+  <ion-modal [isOpen]="isModalOpen" (didDismiss)="isModalOpen = false"><ng-template><ion-header><ion-toolbar><ion-title>Componente modal</ion-title><ion-buttons slot="end"><ion-button (click)="isModalOpen = false">Cerrar</ion-button></ion-buttons></ion-toolbar></ion-header><ion-content class="ion-padding"><div class="modal-content"><ion-icon name="sparkles-outline"></ion-icon><h2>Una tarea enfocada</h2><p>Las modales son ideales para editar, revisar o completar una acción sin perder el contexto de la pantalla principal.</p><ion-button expand="block" (click)="isModalOpen = false">Entendido</ion-button></div></ion-content></ng-template></ion-modal>
+</ion-content>

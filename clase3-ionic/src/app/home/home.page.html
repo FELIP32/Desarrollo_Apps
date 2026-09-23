@@ -1,0 +1,64 @@
+<ion-header class="app-header">
+  <ion-toolbar>
+    <ion-title>
+      <span class="brand-mark">MT</span>
+      <span>Mis tareas</span>
+    </ion-title>
+    <span class="date-label" slot="end">HOY</span>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <main class="todo-shell">
+    <section class="todo-page">
+      <header class="todo-header">
+        <p class="eyebrow">CUADERNO / {{ tareas.length | number: '2.0-0' }}</p>
+        <h1>Lo que toca<br><em>hoy.</em></h1>
+        <p class="subtitle">Una cosa cada vez. El resto puede esperar.</p>
+      </header>
+
+      <form class="composer" (ngSubmit)="agregarTarea()">
+        <ion-input
+          [(ngModel)]="nuevaTarea"
+          name="nuevaTarea"
+          label="Nueva tarea"
+          label-placement="stacked"
+          fill="outline"
+          placeholder="Escribe algo para recordar"
+          aria-label="Nueva tarea"
+        ></ion-input>
+        <ion-button type="submit" aria-label="Añadir tarea">
+          <ion-icon slot="icon-only" name="arrow-forward-outline"></ion-icon>
+        </ion-button>
+      </form>
+
+      @if (tareas.length === 0) {
+        <div class="empty-state">
+          <span class="empty-line"></span>
+          <div>
+            <h2>La lista está en blanco</h2>
+            <p>Empieza por apuntar lo primero que tengas en mente.</p>
+          </div>
+        </div>
+      } @else {
+        <ion-list class="task-list" lines="none">
+          @for (tarea of tareas; track tarea.id; let i = $index) {
+            <ion-item class="task-item">
+              <span class="task-index" slot="start">{{ (i + 1).toString().padStart(2, '0') }}</span>
+              <ion-label>{{ tarea.texto }}</ion-label>
+              <ion-button
+                slot="end"
+                fill="clear"
+                color="danger"
+                (click)="borrarTarea(tarea.id)"
+                aria-label="Eliminar tarea"
+              >
+                <ion-icon slot="icon-only" name="trash-outline"></ion-icon>
+              </ion-button>
+            </ion-item>
+          }
+        </ion-list>
+      }
+    </section>
+  </main>
+</ion-content>

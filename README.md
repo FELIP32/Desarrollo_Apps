@@ -1,5 +1,16 @@
 # Clase3
 
+Este repositorio contiene los proyectos de las clases de Desarrollo de Apps.
+
+## Proyectos
+
+- `src/`: aplicación Angular principal de Clase 3.
+- `clase3-ionic/`: aplicación Ionic de Clase 3.
+- `ionic-componentes/`: aplicación Ionic para practicar componentes.
+
+Cada aplicación mantiene su propio `package.json` y puede ejecutarse desde su
+carpeta con `npm install`, `npm start` y `npm run build`.
+
 This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.2.6.
 
 ## Development server
