@@ -1,0 +1,62 @@
+<ion-content [fullscreen]="true" class="page-shell">
+  <div class="app-frame">
+    <header class="top-header">
+      <span>Blanco</span>
+    </header>
+
+    <main class="message-panel">
+      <div class="content-card">
+        <div class="eyebrow">Galería</div>
+
+        <h1>Captura tus momentos</h1>
+        <p>
+          Sube, toma o selecciona una foto desde tu cámara o galería para guardarla en esta aplicación.
+        </p>
+
+        <input
+          #cameraInput
+          type="file"
+          accept="image/*"
+          capture="environment"
+          hidden
+          (change)="onFileSelected($event)"
+        />
+
+        <div class="camera-preview" *ngIf="cameraActive">
+          <video #videoPreview autoplay playsinline muted></video>
+          <div class="camera-actions">
+            <ion-button color="primary" (click)="capturarDesdeWebcam()">
+              Capturar
+            </ion-button>
+            <ion-button fill="clear" color="light" (click)="cerrarCamara()">
+              Cancelar
+            </ion-button>
+          </div>
+        </div>
+
+        <div class="actions" *ngIf="!cameraActive">
+          <ion-button expand="block" class="primary-btn" (click)="abrirCamara()">
+            Tomar foto
+          </ion-button>
+
+          <ion-button expand="block" fill="outline" class="secondary-btn" (click)="abrirGaleria()">
+            Abrir galería
+          </ion-button>
+        </div>
+
+        <div class="preview" *ngIf="photo">
+          <img [src]="photo" alt="Foto seleccionada" />
+        </div>
+      </div>
+    </main>
+
+    <footer class="bottom-bar">
+      <div class="menu-icon" aria-label="Menú">
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+      <div class="slash-mark" aria-hidden="true"></div>
+    </footer>
+  </div>
+</ion-content>
